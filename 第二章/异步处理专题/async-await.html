@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+//async await : 语法糖: 异步代码 同步写法
+function fn1(){
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+            res('fn1')
+        },1000)
+    })
+}
+function fn2(){
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+            res('fn2')
+        },2000)
+    })
+}
+
+</script>
+
+</html>

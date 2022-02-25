@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>获取users</button>
+
+<script>
+    let btn = document.querySelectorAll('button')
+
+    btn[0].onclick = function (){
+        let xhr = new XMLHttpRequest()
+        xhr.open('get','http://localhost:8888/users')
+
+        xhr.onload = function (){
+            console.log(this.responseText)
+        }
+
+        xhr.send()
+    }
+</script>
+</body>
+</html>

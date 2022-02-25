@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //简单数据类型： 传值
+    let a = 10;
+    let b = a;
+    b = 20;
+    console.log(a)
+
+    //深拷贝
+   let DadProto = {
+        name: '张三',
+       age: 20,
+   }
+
+   let SonProto = JSON.parse(JSON.stringify(DadProto))
+
+    SonProto.name = '李四'
+    console.log(DadProto)
+    console.log(SonProto)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box">
+    <input type="text" id="user" value="小明">
+    <textarea name="" id="message" cols="30" rows="10">我就是传说中的无敌小明</textarea>
+    <button id="btn">提交留言</button>
+    <ul id="list">
+        <li style="height: auto">
+            <h2 class="user">小王说：</h2>
+            <p>呼叫无敌小明</p>
+            <a href="javascript:" class="close">删除<span>X</span></a>
+        </li>
+        <li style="height: auto">
+            <h2 class="user">老师说：</h2>
+            <p>小明滚出去</p>
+            <a href="javascript:" class="close">删除<span>X</span></a>
+        </li>
+    </ul>
+</div>
+<script>
+    //给按钮添加点击事件
+    //创建元素 并且插入到ul列表中
+    let btn = document.querySelector('#btn');
+    let user = document.querySelector("#user")
+    let message = document.querySelector('#message')
+    let list = document.querySelector('#list')
+    let close = document.querySelector('.close')
+    btn.addEventListener('click',()=>{
+        //创建一个li
+        let li = document.createElement('li')
+        li.innerHTML = `
+            <h2 class="user">${user.value}说：</h2>
+            <p>${message.value}</p>
+            <a href="javascript:" class="close">删除<span>X</span></a>
+        `
+        list.insertBefore(li,list.children[0])
+    })
+    list.addEventListener('click',e=>{
+        if(e.target.className =='close'){
+            let li = e.target.parentNode;
+            list.removeChild(li)
+        }
+    })
+</script>
+</body>
+</html>

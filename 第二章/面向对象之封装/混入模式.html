@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //混入模式 mixin  mixins
+    class Hero{
+        constructor(name){
+            this.name = name;
+        }
+    }
+    class Skills{
+        run(){
+            console.log('跑')
+        }
+        release(){
+            console.log('释放技能')
+        }
+    }
+
+    // let yase = new Hero('亚瑟');
+
+    function mixin(receivingClass,givingClass){
+        if(typeof arguments[2] !== "undefined"){
+            for(let i = 2;i<arguments.length; i++){
+                receivingClass.prototype[arguments[i]] = givingClass.prototype[arguments[i]]
+            }
+        }
+    }
+
+    mixin(Hero,Skills,'run','release');
+    let yase = new Hero("亚瑟");
+    yase.release();
+
+</script>
+</body>
+</html>

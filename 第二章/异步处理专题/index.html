@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // JS 同步阻塞 异步非阻塞
+  console.log(111)
+  console.log(222)
+  console.log(333)
+  // alert('阻塞')
+  function test(cb){
+    setTimeout(()=>{
+      console.log('test')
+      cb && cb();
+    },1000)
+  }
+  test(()=>{
+    console.log(444)
+  })
+//异步执行后执行之后的逻辑 1.回调 callback
+</script>
+</body>
+</html>

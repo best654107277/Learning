@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+        // this.hobby = function(){
+        //     console.log('篮球')
+        // }
+    }
+    //公共空间： 原型 ，将方法挂载到原型上
+    Person.prototype.hobby = function(){
+        console.log('篮球')
+    }
+
+    //覆盖
+    Person.prototype = {
+        constructor: Person,
+        hobby : function(){
+            console.log('hobby')
+        }
+    }
+    let zhangsan = new Person('张三')
+    let lisi = new Person('李四')
+    // console.log(zhangsan.hobby() === lisi.hobby())
+
+    //原型的固有属性；
+    console.log( Person.prototype.constructor === Person)
+    console.log( zhangsan.constructor === Person)
+    //  constructor  可以判断类型
+</script>
+</body>
+</html>

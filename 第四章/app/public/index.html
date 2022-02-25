@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+</head>
+<body>
+    <h1>AJAX</h1>
+    <button>获取users数据</button>
+    <button>按钮 = 0</button>
+
+
+<script>
+    let btn = document.querySelectorAll('button')
+
+    btn[0].onclick = function (){
+    //使用JS API类来发送 http 请求
+        //XMLHttpRequest 对象
+        //创建XML对象
+        let xml = new XMLHttpRequest();
+
+        //配置请求参数
+        xml.open('get','/users',true)
+
+        //回调事件
+        xml.onload = function (){
+            //请求线程完成工作得到的返回数据将会被添加到response属性中
+            console.log(this.response)
+        }
+
+        //发送请求
+        xml.send()
+
+    }
+    let i = 0;
+    btn[1].onclick = function (){
+        i++;
+        this.innerHTML = `按钮 = ${i}`
+    }
+
+</script>
+
+</body>
+</html>

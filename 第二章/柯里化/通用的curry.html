@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //实现add(1)(2)(3)
+    function add (x,y,z){
+        return x+y+z;
+    }
+    //通用的curry
+    const curry = function (fn){
+        return function curryFn(...args){
+            if(args.length<fn.length){
+                return function (){
+                    return curryFn(...args,...arguments)
+                }
+            }else{
+                return fn(...args)
+            }
+        }
+    }
+    let myAdd = curry(add);
+    let res = myAdd(1)(2)(3)
+    console.log(res);
+</script>
+</html>

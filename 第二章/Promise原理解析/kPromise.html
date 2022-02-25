@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自己的promise</title>
+</head>
+<body>
+
+</body>
+<script type="module">
+    import KPromise from './kPromise.js';
+    console.log(111);
+
+    setTimeout(()=>{
+        console.log(222);
+    })
+
+    let p = new KPromise((resolve,reject)=>{
+        console.log(333);
+        resolve('success')
+        reject('err')
+    })
+
+//then: 多个then,链式, 返还值处理
+//     p.then(res => {
+//             console.log(res);
+//         },
+//         err => {
+//             console.log(err);
+//         })
+    //微任务和宏任务问题?
+    p.then( res =>{
+        console.log('444',res);
+    })
+    p.then( res =>{
+        console.log('8',res);
+    })
+    console.log(555);
+</script>
+
+</html>

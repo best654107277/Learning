@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function IsPC(){
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ['Android','iPhone','SymbianOS','Windows Phone','iPad','iPod']
+         var flag =true;
+        for (var v = 0; v < Agents.length; v++) {
+            if(userAgentInfo.indexOf(Agents[v])){
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+    {
+        let ua = navigator.userAgent.toLowerCase();
+        if(/android|adr/gi.test(ua)){
+            //安卓
+        }else if(/iPad/gi.test(ua)){
+            //iPad
+            console.log('iPad')
+        }else if(/\(i[^;]+;( U;)? CPU.+Mac OS X/gi.test(ua)){
+            //苹果
+            console.log('苹果')
+
+        }
+
+    }
+
+    console.log(IsPC());
+</script>
+</body>
+</html>

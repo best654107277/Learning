@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button>click</button>
+</body>
+<script>
+    let cb = function (){
+        console.log(cb);
+    }
+    let ob = new MutationObserver(cb)
+    ob.observe(document.body,{
+        attributes:true
+    })
+    document.querySelector('button').onclick = function(){
+        document.body.setAttribute('kkb','value')
+    }
+</script>
+</html>

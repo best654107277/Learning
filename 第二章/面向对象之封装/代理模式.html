@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let zhangsan = {
+    //     sellHouse(num){
+    //         console.log("卖了"+num+"万元");
+    //     }
+    // }
+    // //代理模式
+    // let proxySeller = {
+    //     sellHouse(hasSold,num) {
+    //         if(hasSold){
+    //             zhangsan.sellHouse(num-2)
+    //         }else{
+    //             zhangsan.sellHouse(num)
+    //         }
+    //     }
+    // }
+    // zhangsan.sellHouse(100)
+    // proxySeller.sellHouse(true,100)
+    //
+    // let obj = {
+    //     name:'张三'
+    // }
+    // let newObj = new Proxy(obj,{
+    //     get(target,key){
+    //         console.log('get')
+    //     },
+    //     set(){
+    //         console.log('set')
+    //     }
+    // })
+    // newObj.name;
+
+    //服务器代理 也叫正向代理 proxy:{} -->nodejs
+    //创建图片
+    class  CreateImg{
+        constructor() {
+            this.img = document.createElement('img')
+            document.body.appendChild(this.img)
+        }
+        setSrc(src){
+            this.img.src = src;
+
+        }
+    }
+    let src = "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2Ftp09%2F210611094Q512b-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647161458&t=003b1acd5d96e2ac061bd18693cc1c71"
+    // let img = new CreateImg();
+    // img.setSrc(src)
+
+    //代理模式
+    function ProxyImg(src){
+        let myImg = new CreateImg();
+        let loadImg = new Image();
+        loadImg.src = src;
+        myImg.setSrc("./O1CN01V8rJnN1Mukqlr9tW1_!!2213062551495.jpg");
+        loadImg.onload = function (){
+            myImg.setSrc(this.src)
+        }
+    }
+    ProxyImg(src);
+</script>
+
+
+</body>
+</html>

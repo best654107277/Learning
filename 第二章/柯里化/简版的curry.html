@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+</body>
+<script>
+    //实现add(1)(2)(3)
+    function add(x,y,z){
+        return x+y+z;
+    }
+    //简版的柯里化
+    const curry = function(fn){
+        return function (x){
+            return function (y){
+                return function (z){
+                    return x+y+z;
+                }
+            }
+        }
+    }
+    let myAdd = curry(add);
+    let res = myAdd(1)(2)(3)
+    console.log(res);
+</script>
+</html>

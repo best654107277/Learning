@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function getUsers(){
+        return [
+            {name:'lisi',age:25},
+            {name:'zhangsan',age:20},
+            {name:'wangwu',age:22}
+        ]
+    }
+
+    console.log(getUsers())
+    function adaptcr(users){
+        let arr = []
+        for(let i = 0;i<users.length;i++){
+            arr[users[i].name] = users[i].age;
+        }
+        return arr;
+    }
+    let newArr = adaptcr(getUsers());
+    console.log(newArr)
+</script>
+</body>
+</html>

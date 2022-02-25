@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //面向过程;
+    /*面向对象(思维方式)：
+         1.研究对象(研究对象属性和方法)
+         2.抽象对象成类（复用性变高）
+         3.研究类之间的关系（扩展性强)
+    */
+    //构造函数 -->类
+    // function Person(){
+    //     this.name = '张安';
+    //     this.age = 20;
+    //     this.action = function(){
+    //         console.log('走')
+    //     }
+    // }
+    // Person.prototype.action = function(){
+    //     console.log()
+    // }
+
+    class Person{
+        constructor(name,age) {
+            this.name = name;
+            this.age = age;
+        }
+        action(){
+            console.log(this.age,this.name)
+        }
+    }
+    let zhangsan = new Person('里斯',20);
+    console.log(zhangsan);
+    console.log(typeof Person)
+    zhangsan.action()
+
+    function Dad(){
+
+    }
+    function son(){
+
+    }
+</script>
+</body>
+</html>

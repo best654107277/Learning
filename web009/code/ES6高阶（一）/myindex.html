@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        function move(ele,dir,target,cb){
+            let start = parseInt( ele.style[dir] ) || 0;
+            let dis = (target - start) / Math.abs(target - start);
+            console.log(dis)
+            let speed = 5 * dis;
+            setTimeout(()=>{
+                start += speed
+                if(start===target){
+                    // console.log('运动完成')
+                    cb && cb()
+                }else{
+                    ele.style[dir] = start +'px'
+                    move(ele,dir,target,cb)
+                }
+            },10)
+            
+        }
+        let ele = document.querySelector(".box")
+        move(ele,'left',300, ()=>{
+            console.log('第一个过程完成')
+            move(ele,'top',300, ()=>{
+                console.log('第二个过程完成')
+                move(ele,'left',0,()=>{
+                    console.log('第三个过程完成')
+                    move(ele,'top',0,()=>{
+                        console.log('运动完成')
+                    })
+                })
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    构造函数
+        1.首字母大写；
+        2.this指向实例化对象
+     */
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+        this.hobby = function(){
+            console.log('喜欢篮球')
+        }
+    }
+    //静态属性 挂载到原型链
+    Person.num = 0;
+    //静态方法
+    Person.ball = function(){
+        console.log(Person.num)
+    }
+    //new : 实例化；
+    let zhangsan = new Person('张三',20)
+    Person.num ++;
+    let lisi = new Person('李四',22)
+    Person.num ++;
+    // console.log(Person.num);
+    console.log(Person.ball());
+</script>
+</body>
+</html>

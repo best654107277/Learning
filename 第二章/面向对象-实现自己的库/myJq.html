@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="myJq.js"></script>
+</head>
+<body>
+<h1>自己的jQ</h1>
+<button>点击</button>
+<button>点击</button>
+
+<script>
+    //原生的写法
+    // document.querySelector("button").onclick = function(){
+    //     console.log(111)
+    // }
+    // $('button').click(()=>{
+    //     console.log(111)
+    // })
+
+    $('button').on('mouseover mousedown',()=>{
+        console.log('执行了')
+    })
+</script>
+</body>
+</html>
