@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Title</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: #0a6999;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+
+
+<script>
+
+    //pc简单的拖拽
+    // let box = document.querySelector('.box')
+    // box.onmousedown = function (e) {
+    //     let oldX = e.offsetX
+    //     let oldY = e.offsetY
+    //
+    //     document.onmousemove = function (e) {
+    //         let nowX = e.clientX - oldX
+    //         let nowY = e.clientY - oldY
+    //
+    //         box.style.transform = `translate(${nowX}px,${nowY}px)`
+    //     }
+    //     box.onmouseup = function () {
+    //         document.onmousemove = null
+    //     }
+    // }
+
+    //移动端拖拽
+
+    let box = document.querySelector('.box')
+
+    let oldX, oldY, startX, startY = 0
+
+    box.ontouchstart = function (e) {
+        let info = this.getBoundingClientRect()
+        console.log(info);
+        //元素原本的位置
+        startX = info.left
+        startY = info.top
+
+        //原本鼠标的位置
+        let touch = e.changedTouches[0]
+        console.log(touch);
+        oldX = touch.pageX;
+        oldY = touch.pageY
+    }
+
+    box.ontouchmove = function (e) {
+        let touch = e.changedTouches[0]
+
+        //当前鼠标的位置
+        let nowX = touch.pageX - oldX + startX
+        let nowY = touch.pageY - oldY + startY
+
+        box.style.transform = `translate(${nowX}px,${nowY}px)`
+        e.preventDefault() //移动端有弹性效果
+    }
+</script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Title</title>
+
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            background: #f1b0b7;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+<a href="http://www.kaikeba.com">开课吧</a>
+<!--<span data-href="http://www.kaikeba.com">开课吧</span>-->
+</body>
+
+<script>
+    let box = document.querySelector('.box')
+
+    //pc事件
+    // box.onmousedown = () => {
+    //     console.log('鼠标按下')
+    // }
+    // box.onmouseup = () => {
+    //     console.log('鼠标抬起')
+    // }
+    // box.onmousemove = () => {
+    //     console.log('在元素内移动')
+    // }
+
+    //移动端事件
+    // box.ontouchstart = () => {
+    //     console.log('touchstart')
+    // }
+    // box.ontouchmove = () => {
+    //     console.log('touchmove')
+    // }
+    // box.ontouchend = () => {
+    //     console.log('touchend')
+    // }
+
+    //移动端也支持鼠标事件  onmousedown和onclick事件在移动端都需要延迟300ms时才触发  也可以说是在抬起时
+    // box.onmousedown = () => {
+    //     console.log('点击')
+    // }
+    box.ontouchstart = (e) => {
+        box.style.display = 'none'
+        e.preventDefault()
+    }
+    // document.ontouchstart = function (ev) {
+    //     console.log(ev.target);
+    //     let dataset = ev.target.dataset
+    //     if (dataset.hasOwnProperty('href')) {
+    //         console.log(dataset.href)
+    //         window.location.href = dataset.href
+    //     }
+    // }
+
+    //延迟执行
+    // box.ontouchstart = () => {
+    //     setTimeout(() => {
+    //         box.style.display = 'none'
+    //     }, 300)
+    // }
+
+</script>
+</html>
